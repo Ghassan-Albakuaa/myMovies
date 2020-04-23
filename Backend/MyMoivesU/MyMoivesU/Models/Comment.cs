@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MyMoivesU.Models
 {
-    public class Chat
+    public class Comment
     {  
         public int Id { get; set; }
         public string CommentText { get; set; }
