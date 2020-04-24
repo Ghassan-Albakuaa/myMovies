@@ -29,38 +29,38 @@ namespace MyMoivesU
                 new Movie
                 {
                     Id = 1,
-                    Title = "Friends",
-                    Image = "friends.jpg",
-                    Season = "10",
+                    Title = "Parasite",
+                    Image = "Parasite.jpg",
+                    Season = "1",
                     ViewerDiscretion = "TV-14",
                     Transcript = "how you doin"
                 },
                 new Movie
                 {
                     Id = 2,
-                    Title = "Game of Thrones",
-                    Image = "gameofthrones.jpg",
-                    Season = "8",
+                    Title = "The Irishman",
+                    Image = "The Irishman.jpg",
+                    Season = "2",
                     ViewerDiscretion = "TV-MA",
                     Transcript = "how you doin"
                 },
                 new Movie
                 {
                     Id = 3,
-                    Title = "The Marvelous Mrs. Maisel",
-                    Image = "maisel.jpg",
+                    Title = "Marriage Story",
+                    Image = "MarriageStory.jpg",
                     Season = "4",
                     ViewerDiscretion = "TV-MA",
-                    Transcript = "how you doin"
+                    Transcript = "You can't blame me"
                 },
                 new Movie
                 {
                     Id = 4,
-                    Title = "Ozark",
-                    Image = "ozark.jpg",
+                    Title = "Once Upon a Time in Hollywood",
+                    Image = "OnceUponaTimeinHollywood.jpg",
                     Season = "3",
                     ViewerDiscretion = "TV-MA",
-                    Transcript = "how you doin"
+                    Transcript = "What? I don't understand"
                 });
 
 
