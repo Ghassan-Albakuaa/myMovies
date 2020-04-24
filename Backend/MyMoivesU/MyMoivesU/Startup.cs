@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MyMoivesU.Models;
+using MyMoivesU.Repository;
+using Newtonsoft.Json;
 
 namespace MyMoivesU
 {
@@ -19,12 +22,40 @@ namespace MyMoivesU
             Configuration = configuration;
         }
 
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public IConfiguration Configuration { get; }
+
+        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        { 
+        services.AddMvc();
             services.AddControllers();
+            services.AddDbContext<MovieContext>();
+            services.AddControllers().AddNewtonsoftJson(o =>
+            {
+            o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+        });
+            services.AddScoped<IRepository<Watchlist>, WatchlistRepository>();
+            services.AddScoped<IRepository<Comment>, CommentRepository>();
+            services.AddScoped<IRepository<Movie>, MovieRepository>();
+            services.AddScoped<IRepository<User>, UserRepository>();
+
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:8080",
+                                        "https://localhost:8080")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+    });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
