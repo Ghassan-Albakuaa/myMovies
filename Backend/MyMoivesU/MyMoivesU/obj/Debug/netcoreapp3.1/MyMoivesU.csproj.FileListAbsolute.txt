@@ -119,6 +119,10 @@ C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\obj\Debug\netcoreapp3.1\MyMoivesU.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\obj\Debug\netcoreapp3.1\MyMoivesU.dll
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\obj\Debug\netcoreapp3.1\MyMoivesU.pdb
+C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\obj\Debug\netcoreapp3.1\MyMoivesU.MvcApplicationPartsAssemblyInfo.cache
