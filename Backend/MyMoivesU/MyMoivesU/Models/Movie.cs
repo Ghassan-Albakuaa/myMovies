@@ -15,6 +15,8 @@ namespace MyMoivesU.Models
         public string ViewerDiscretion { get; set; }
         public string Transcript { get; set; }
 
+        public string Link { get; set; }
+
         [JsonIgnore]
         public virtual IList<Watchlist> Watchlists { get; set; }
         [JsonIgnore]
@@ -24,7 +26,7 @@ namespace MyMoivesU.Models
         {
         }
 
-        public Movie(int id, string title, string image, string season, string viewerDiscretion , string transcript)
+        public Movie(int id, string title, string image, string season, string viewerDiscretion , string transcript, string link)
         {
             Id = id;
             Title = title;
@@ -32,6 +34,8 @@ namespace MyMoivesU.Models
             Season = season;
             ViewerDiscretion = viewerDiscretion;
             Transcript = transcript;
+            Link = link;
+
         }
     }
 }
