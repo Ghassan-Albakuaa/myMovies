@@ -13,7 +13,7 @@ namespace MyMoivesU.Repository
         {
             db = context;
         }
-        public override IEnumerable<Comment> GetByTvShowId(int id)
+        public override IEnumerable<Comment> GetByMovieId(int id)
         {
             return db.Comments.Where(w => w.MovieId == id).ToList();
         }

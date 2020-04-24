@@ -54,8 +54,8 @@ namespace MyMoivesU.Controllers
         [HttpDelete("{id}")]
         public IEnumerable<Movie> Delete(int id)
         {
-            var tvShow = movieRepo.GetById(id);
-            movieRepo.Delete(tvShow);
+            var movie = movieRepo.GetById(id);
+            movieRepo.Delete(movie);
             return movieRepo.GetAll();
         }
     }

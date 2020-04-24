@@ -9,7 +9,7 @@ namespace MyMoivesU.Repository
     {
         IEnumerable<T> GetAll();
         IEnumerable<T> GetByUserId(int id);
-        IEnumerable<T> GetByTvShowId(int id);
+        IEnumerable<T> GetByMovieId(int id);
         T GetById(int id);
         void Create(T obj);
         void Update(T obj);

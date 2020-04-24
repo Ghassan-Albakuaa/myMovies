@@ -59,7 +59,7 @@ namespace MyMoivesU.Repository
             throw new NotImplementedException();
         }
 
-        public virtual IEnumerable<T> GetByTvShowId(int id)
+        public virtual IEnumerable<T> GetByMovieId(int id)
         {
             throw new NotImplementedException();
         }

@@ -2,7 +2,6 @@ C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\bin\Debug\netcoreapp3.1\MyMoivesU.exe
-C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\obj\Debug\netcoreapp3.1\MyMoivesU.csprojAssemblyReference.cache
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\obj\Debug\netcoreapp3.1\staticwebassets\MyMoivesU.StaticWebAssets.Manifest.cache
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\obj\Debug\netcoreapp3.1\staticwebassets\MyMoivesU.StaticWebAssets.xml
 C:\Users\14404\Source\MyMoivesU\Backend\MyMoivesU\MyMoivesU\obj\Debug\netcoreapp3.1\MyMoivesU.AssemblyInfoInputs.cache
