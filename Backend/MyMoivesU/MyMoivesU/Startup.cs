@@ -25,13 +25,12 @@ namespace MyMoivesU
         readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public IConfiguration Configuration { get; }
-
         
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         { 
-        services.AddMvc();
+            services.AddMvc();
             services.AddControllers();
             services.AddDbContext<MovieContext>();
             services.AddControllers().AddNewtonsoftJson(o =>
@@ -53,7 +52,7 @@ namespace MyMoivesU
                                         "https://localhost:8080")
                                         .AllowAnyHeader()
                                         .AllowAnyMethod();
-    });
+                });
             });
 
         }
@@ -65,6 +64,12 @@ namespace MyMoivesU
             {
                 app.UseDeveloperExceptionPage();
             }
+            // .net 3.1 cors issue
+            app.UseCors(MyAllowSpecificOrigins);
+
+            app.UseStaticFiles();
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -77,3 +82,5 @@ namespace MyMoivesU
         }
     }
 }
+
+
