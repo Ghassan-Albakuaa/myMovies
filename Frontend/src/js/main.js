@@ -1,13 +1,30 @@
 import Home from "./components/Home";
+import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default pageBuild
 
 function pageBuild(){
-   
-    home();
+    header();    
     navbar();
+    footer();   
+    home();
 
+}
+
+function header() {
+    const header = document.querySelector('.header');
+    header.innerHTML = Header();
+}
+function navbar() {
+    const navbar = document.querySelector('.navbar');
+    navbar.innerHTML = Navbar();
+}
+
+function footer() {
+    const footer = document.querySelector('.footer');
+    footer.innerHTML = Footer();
 }
 
 function home() {
@@ -16,9 +33,4 @@ function home() {
     homeNav.addEventListener('click', function(){
         mainDiv.innerHTML = Home();
     })
-}
-
-function navbar() {
-    const navbar = document.querySelector('.navbar');
-    navbar.innerHTML = Navbar();
 }
