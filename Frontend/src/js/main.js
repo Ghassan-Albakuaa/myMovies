@@ -2,6 +2,7 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import apiActions from "./api/apiActions";
 
 export default pageBuild
 
