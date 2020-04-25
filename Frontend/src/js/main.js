@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import apiActions from "./api/apiActions";
 import Users from "./components/Users";
+import Movies from "./components/Movies";
 
 export default pageBuild
 
@@ -13,6 +14,7 @@ function pageBuild(){
     footer();   
     home();
    navUsers();
+   navMovies();
 }
 
 function header() {
@@ -45,6 +47,19 @@ function navUsers() {
          apiActions.getRequest("http://localhost:57559/api/User",
             users => {          
                 mainDiv.innerHTML = Users(users);
+            }
+        )
+    })
+}
+
+function navMovies() {
+    const usersNavButton = document.querySelector(".nav__movies");
+    const mainDiv = document.querySelector(".main_div");
+
+    usersNavButton.addEventListener("click", function(){
+         apiActions.getRequest("http://localhost:57559/api/Movie",
+         movies => {          
+                mainDiv.innerHTML = Movies(movies);
             }
         )
     })
