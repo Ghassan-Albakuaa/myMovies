@@ -1,4 +1,4 @@
-export default function WatchlistFilter(watchlist){
+export default function UserWatchlistFilter(watchlist){
     return `
       ${watchlist.map(element => {
          

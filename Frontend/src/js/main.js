@@ -8,6 +8,8 @@ import Movies from "./components/Movies";
 import UserWatchlistFilter from "./components/UserWatchlistFilter";
 import WatchlistGrid from "./components/WatchlistGrid";
 import WatchlistUserInfo from "./components/WatchlistUserInfo";
+import WatchlistAddMovie from "./components/WatchlistAddMovie";
+import WatchlistAddMovieButtonSection from "./components/WatchlistAddMovieButtonSection";
 
 export default pageBuild
 
@@ -82,7 +84,17 @@ function navUsers() {
         )}
     })
 
-
+  // Displays add Movie option
+  mainDiv.addEventListener("click", function() {
+    const watchlistAddMovieSection = mainDiv.querySelector(".watchlist__add_movie");
+    if(event.target.classList.contains('watchlist__add_movie_button')){
+        apiActions.getRequest("http://localhost:57559/api/Movie",
+            movies => {
+                watchlistAddMovieSection.innerHTML = WatchlistAddMovie(movies);
+            }
+        )
+    }
+})
 
 
 }
