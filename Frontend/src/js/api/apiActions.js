@@ -5,7 +5,7 @@ function getRequest(location, callback) {
         .catch(err => console.log(err))
 }
 
-/*
+
 function postRequest(location, requestBody, callback) {
     fetch(location, {
         method: 'POST',
@@ -43,10 +43,10 @@ function putRequest(location, requestBody, callback) {
         .then(data => callback(data))
         .catch(err => console.log(err))
 }
-*/
+
 export default {
     getRequest,
- //   postRequest,
- //   deleteRequest,
- //   putRequest
+    postRequest,
+  deleteRequest,
+   putRequest
 };

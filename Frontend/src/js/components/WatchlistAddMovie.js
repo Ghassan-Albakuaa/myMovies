@@ -1,10 +1,10 @@
 //import UserLogin from "./UserLogin"
 var flag = 0;
 export default function WatchlistAddMovie(movies) {
- 
+    
     return `
-    <p>Choose a show</p>
-    <select class="watchlistaddshow__show_id" type="dropdown">
+    <p>Choose a Movie</p>
+    <select class="watchlistaddmovie__movie_id" type="dropdown">
     ${movies.map(movie => {
         flag = 0;
         movie.watchlists.forEach(element => {

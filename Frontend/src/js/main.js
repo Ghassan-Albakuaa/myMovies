@@ -59,15 +59,15 @@ function navUsers() {
     })
 
     //l 6
-
+    // Goes to specific user from users view
     mainDiv.addEventListener("click", function() {
         if(event.target.classList.contains('user__name_btn')
         || event.target.classList.contains('users__user_image')){
             const userId = event.target.parentElement.querySelector('.user__id').value;
             //local storage
-       //   var vistorId =0;
-       //    localStorage.removeItem(vistorId);
-       //     localStorage.setItem("vistorId",userId);
+            var vistorId =0;
+            localStorage.removeItem(vistorId);
+            localStorage.setItem("vistorId",userId);
             const watchlistGrid = document.createElement('div');
             watchlistGrid.classList.add('watchlist__upper_grid_container');
             watchlistGrid.innerHTML = WatchlistGrid();
@@ -96,6 +96,41 @@ function navUsers() {
     }
 })
 
+  // Adds movie to watchlist
+  mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('watchlistaddmovie__submit')){
+        const userId = document.querySelector('.user__id').value;
+        const watchlistAddShowButtonSection = document.querySelector(".watchlist__add_movie");
+        const movieId = event.target.parentElement.querySelector('.watchlistaddmovie__movie_id').value;
+        const status = event.target.parentElement.querySelector('.watchlistaddmovie__status_choice').value;
+  
+        var requestBody = {
+            Status: status,
+            UserId: userId,
+            MovieId: movieId
+        }
+        apiActions.postRequest(
+            "http://localhost:57559/api/Watchlist",
+            requestBody,
+            a => {
+                const watchlistGrid = document.createElement('div');
+                watchlistGrid.classList.add('watchlist__upper_grid_container');
+                watchlistGrid.innerHTML = WatchlistGrid();
+                apiActions.getRequest(`http://localhost:57559/api/User/${userId}`,
+                user => {
+                    mainDiv.innerHTML = WatchlistUserInfo(user);
+                    mainDiv.appendChild(watchlistGrid);
+                    apiActions.getRequest(`http://localhost:57559/api/Watchlist/User/${userId}`,
+                    usersWatchlist => {
+                        UserWatchlistFilter(usersWatchlist);
+                    }
+                    )
+                }
+            )}
+        )
+        watchlistAddShowButtonSection.innerHTML = WatchlistAddMovieButtonSection();
+    }
+})
 
 }
 
