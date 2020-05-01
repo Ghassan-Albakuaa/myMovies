@@ -131,6 +131,68 @@ function navUsers() {
         watchlistAddShowButtonSection.innerHTML = WatchlistAddMovieButtonSection();
     }
 })
+//////////////////////////////////////////////////////edit////////////////////////////////////////////////////////
+ // Get the edit watchlist view
+ mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('edit-watchList__submit')){
+        const WatchId = event.target.parentElement.querySelector('.watch__id').value;
+        //console.log(WatchId);
+
+        apiActions.getRequest(
+            `http://localhost:57559/api/Watchlist/${WatchId}`,
+            WatchListEdit => {
+                //console.log(WatchListEdit);
+                mainDiv.innerHTML = EditWatchlist( WatchListEdit);
+            }
+        )
+
+    }
+})
+
+// Perform edit watchlist PUT and return watchlist view
+mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('update-watchList__submit')){
+        const watchId = event.target.parentElement.querySelector('.watch__id').value;
+        const userId = event.target.parentElement.querySelector('.user__id').value;
+        const movieId = event.target.parentElement.querySelector('.tv__id').value;
+        const review = event.target.parentElement.querySelector('.update-review').value;
+        const rating = event.target.parentElement.querySelector('.update-rating').value;
+        const status = event.target.parentElement.querySelector('.update-status').value;
+    
+        const WatchData = {
+            Id: watchId,
+            UserId: userId,
+            TvShowId: movieId,
+            Review: review,
+            Rating: rating,
+            Status: status
+            };
+
+            //console.log(WatchData);
+
+  apiActions.putRequest(
+    `http://localhost:57559/api/Watchlist/${watchId}`,
+    WatchData,
+    a => {
+        const watchlistGrid = document.createElement('div');
+        watchlistGrid.classList.add('watchlist__upper_grid_container');
+        watchlistGrid.innerHTML = WatchlistGrid();
+        apiActions.getRequest(`http://localhost:57559/api/User/${userId}`,
+        user => {
+            mainDiv.innerHTML = WatchlistUserInfo(user);
+            mainDiv.appendChild(watchlistGrid);
+            apiActions.getRequest(`http://localhost:57559/api/Watchlist/User/${userId}`,
+            usersWatchlist => {
+                WatchlistFilter(usersWatchlist);
+            }
+            )
+        }
+    )}
+   )
+}
+})
+
+/////////////////////////////////////////////////////end////////////edit///////////////////////////////////////// 
 
 }
 
