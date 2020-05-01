@@ -11,6 +11,8 @@ import WatchlistUserInfo from "./components/WatchlistUserInfo";
 import WatchlistAddMovie from "./components/WatchlistAddMovie";
 import WatchlistAddMovieButtonSection from "./components/WatchlistAddMovieButtonSection";
 import EditWatchlist from "./components/EditWatchlist";
+import MovieSelection from "./components/MovieSelection";
+import ReviewAddToWatchlist from "./components/ReviewAddToWatchlist";
 
 
 export default pageBuild
@@ -196,7 +198,7 @@ mainDiv.addEventListener("click", function(){
 
 /////////////////////////////////////////////////////end////////////edit///////////////////////////////////////// 
 
-  // Delete a movie from a user's watchlist
+ /////////////////////////////////////////////////////////////////////// // Delete a movie from a user's watchlist
   mainDiv.addEventListener("click", function(){
     if(event.target.classList.contains('deleteReview-watchList__submit')){
         const WatchId = event.target.parentElement.querySelector('.watch__id').value;
@@ -225,7 +227,58 @@ mainDiv.addEventListener("click", function(){
         )
     }
 })
+////////////////////////////////////////////////////////end delete/////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////add review//////////////////////////////////////////////
+// Get the add review view
+mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('addReview-watchList__submit')){
+        const WatchId = event.target.parentElement.querySelector('.watch__id').value;
+        //console.log(WatchId);
+
+        apiActions.getRequest(
+            `http://localhost:57559/api/Watchlist/${WatchId}`,
+            ReviewAdd => {
+                //console.log(ReviewAdd);
+                mainDiv.innerHTML = ReviewAddToWatchlist(ReviewAdd);
+            }
+        )
+
+    }
+})
+
+// Perform add review to a particular show PUT request
+mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('addReview-watchList__submit')){
+        const watchId = event.target.parentElement.querySelector('.watch__id').value;
+        const userId = document.querySelector('.user__id').value;
+        const movieId = document.querySelector('.tv__id').value;
+        const review = event.target.parentElement.querySelector('.update-review').value;
+        const rating = event.target.parentElement.querySelector('.update-rating').value;
+        const status = event.target.parentElement.querySelector('.update-status').value;
+
+        const WatchData = {
+            Id: watchId,
+            UserId: userId,
+            MovieId: movieId,
+            Review: review,
+            Rating: rating,
+            Status: status
+            };
+            //console.log(WatchData);
+        apiActions.putRequest(
+        `http://localhost:57559/api/Watchlist/${watchId}`,
+        WatchData,
+        a => {
+            apiActions.getRequest(`http://localhost:57559/api/TvShow/${movieId}`,
+            tvShow => {
+                mainDiv.innerHTML = MovieSelection(movie);
+                }
+            )}
+        )
+    }
+})
+////////////////////////////////////////////////////////////end///////////////////////////review///////////////////
 }
 
 function navMovies() {
