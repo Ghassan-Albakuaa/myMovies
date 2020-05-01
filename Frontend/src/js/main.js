@@ -252,7 +252,7 @@ mainDiv.addEventListener("click", function(){
     if(event.target.classList.contains('addReview-watchList__submit')){
         const watchId = event.target.parentElement.querySelector('.watch__id').value;
         const userId = document.querySelector('.user__id').value;
-        const movieId = document.querySelector('.tv__id').value;
+        const movieId = document.querySelector('.movie__id').value;
         const review = event.target.parentElement.querySelector('.update-review').value;
         const rating = event.target.parentElement.querySelector('.update-rating').value;
         const status = event.target.parentElement.querySelector('.update-status').value;
@@ -270,8 +270,8 @@ mainDiv.addEventListener("click", function(){
         `http://localhost:57559/api/Watchlist/${watchId}`,
         WatchData,
         a => {
-            apiActions.getRequest(`http://localhost:57559/api/TvShow/${movieId}`,
-            tvShow => {
+            apiActions.getRequest(`http://localhost:57559/api/movie/${movieId}`,
+            movie => {
                 mainDiv.innerHTML = MovieSelection(movie);
                 }
             )}
