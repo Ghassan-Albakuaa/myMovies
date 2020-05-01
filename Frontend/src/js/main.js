@@ -322,9 +322,22 @@ mainDiv.addEventListener("click", function(){
     }
 })
 //////////////////////////////////////////////end/////////////////////////////////////////////////////////////////
-
-
+////////////////// Go to specific show when show name is clicked on in watchlist//////////////////////////////////
+  
+mainDiv.addEventListener("click", function() {
+    if(event.target.classList.contains("watched_movie__title")
+    || event.target.classList.contains("watching_movie__title")
+    || event.target.classList.contains("tobewatched_movie__title")){
+        const movieId = event.target.parentElement.querySelector(".watch__movieId").value;
+        apiActions.getRequest(`http://localhost:57559/api/movie/${movieId}`,
+        movie => {
+            mainDiv.innerHTML = MovieSelection(movie);
+        }
+    )
+    }
+})
 }
+/////////////////////////////////////////////////////////////////////////
 
 function navMovies() {
     const usersNavButton = document.querySelector(".nav__movies");
