@@ -10,6 +10,8 @@ import WatchlistGrid from "./components/WatchlistGrid";
 import WatchlistUserInfo from "./components/WatchlistUserInfo";
 import WatchlistAddMovie from "./components/WatchlistAddMovie";
 import WatchlistAddMovieButtonSection from "./components/WatchlistAddMovieButtonSection";
+import EditWatchlist from "./components/EditWatchlist";
+
 
 export default pageBuild
 
@@ -154,7 +156,7 @@ mainDiv.addEventListener("click", function(){
     if(event.target.classList.contains('update-watchList__submit')){
         const watchId = event.target.parentElement.querySelector('.watch__id').value;
         const userId = event.target.parentElement.querySelector('.user__id').value;
-        const movieId = event.target.parentElement.querySelector('.tv__id').value;
+        const movieId = event.target.parentElement.querySelector('.movie__id').value;
         const review = event.target.parentElement.querySelector('.update-review').value;
         const rating = event.target.parentElement.querySelector('.update-rating').value;
         const status = event.target.parentElement.querySelector('.update-status').value;
@@ -162,7 +164,7 @@ mainDiv.addEventListener("click", function(){
         const WatchData = {
             Id: watchId,
             UserId: userId,
-            TvShowId: movieId,
+            MovieId: movieId,
             Review: review,
             Rating: rating,
             Status: status
@@ -183,7 +185,7 @@ mainDiv.addEventListener("click", function(){
             mainDiv.appendChild(watchlistGrid);
             apiActions.getRequest(`http://localhost:57559/api/Watchlist/User/${userId}`,
             usersWatchlist => {
-                WatchlistFilter(usersWatchlist);
+                UserWatchlistFilter(usersWatchlist);
             }
             )
         }
