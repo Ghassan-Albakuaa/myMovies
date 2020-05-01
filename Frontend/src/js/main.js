@@ -13,7 +13,7 @@ import WatchlistAddMovieButtonSection from "./components/WatchlistAddMovieButton
 import EditWatchlist from "./components/EditWatchlist";
 import MovieSelection from "./components/MovieSelection";
 import ReviewAddToWatchlist from "./components/ReviewAddToWatchlist";
-
+import UserLogin from "./components/UserLogin";
 
 export default pageBuild
 
@@ -40,7 +40,7 @@ function footer() {
     const footer = document.querySelector('.footer');
     footer.innerHTML = Footer();
 }
-
+/*
 function home() {
     const homeNav = document.querySelector('.nav__home');
     const mainDiv = document.querySelector('.main_div');
@@ -48,6 +48,20 @@ function home() {
         mainDiv.innerHTML = Home();
     })
 }
+
+*/
+function home() {
+    const homeNav = document.querySelector('.nav__home');
+    const mainDiv = document.querySelector('.main_div');
+    homeNav.addEventListener('click', function(){
+        apiActions.getRequest("http://localhost:57559/api/User",
+        users => {
+            mainDiv.innerHTML = Home(users);
+        }
+    )
+    })
+}
+
 
 
 function navUsers() {
@@ -279,6 +293,37 @@ mainDiv.addEventListener("click", function(){
     }
 })
 ////////////////////////////////////////////////////////////end///////////////////////////review///////////////////
+/////////////////////////////////////////////log in//////////////////////////////////////////////////////////////
+
+ mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('Search-addReview-watchList__submit')){
+    const user___Id = event.target.parentElement.querySelector('.Login-add-__username').value;  
+    localStorage.setItem("LoginhUserId",user___Id);      
+            apiActions.getRequest("http://localhost:57559/api/User",
+            users => {
+                mainDiv.innerHTML = UserLogin(users);
+                const watchlistGrid = document.createElement('div');
+                watchlistGrid.classList.add('watchlist__upper_grid_container');
+                watchlistGrid.innerHTML = WatchlistGrid();
+                apiActions.getRequest(`http://localhost:57559/api/User/${localStorage.LoginhUserId}`,
+                user => {
+                mainDiv.innerHTML = WatchlistUserInfo(user);
+                mainDiv.appendChild(watchlistGrid);
+                
+                apiActions.getRequest(`http://localhost:57559/api/Watchlist/User/${localStorage.LoginhUserId}`,
+                    usersWatchlist => {
+                        UserWatchlistFilter(usersWatchlist);
+                    }
+                    )
+                }
+                )
+            }
+        )
+    }
+})
+//////////////////////////////////////////////end/////////////////////////////////////////////////////////////////
+
+
 }
 
 function navMovies() {
