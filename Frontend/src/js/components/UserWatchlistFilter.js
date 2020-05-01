@@ -10,7 +10,7 @@ export default function UserWatchlistFilter(watchlist){
               <input class="watch__Userid"  type="hidden" value="${element.user.id}">`
             + ` <img class="movie__image" src="./img/movies/${element.movie.image}" alt="${element.movie.image}"></img>`
             + ` </br>`
-            + ` <input class="watch__tvShowId" type="hidden" value="${element.movieId}">`
+            + ` <input class="watch__movieId" type="hidden" value="${element.movieId}">`
             + ` <button class='edit-watchList__submit'>Edit</button>` 
             + ` <button class='addReview-watchList__submit'>Add Review </button>`
             + ` <button class='deleteReview-watchList__submit'>Delete</button>` ;
@@ -25,7 +25,7 @@ export default function UserWatchlistFilter(watchlist){
           <input class="watch__Userid"  type="hidden" value="${element.user.id}">`
         + ` <img class="movie__image" src="./img/movies/${element.movie.image}" alt="${element.movie.image}"></img>`
         + ` </br>`
-        + ` <input class="watch__tvShowId" type="hidden" value="${element.movieId}">`
+        + ` <input class="watch__movie" type="hidden" value="${element.movieId}">`
         + ` <button class='edit-watchList__submit'>Edit</button>`        
         + ` <button class='deleteReview-watchList__submit'>Delete</button>` ;
     }
@@ -39,7 +39,7 @@ export default function UserWatchlistFilter(watchlist){
       <input class="watch__Userid"  type="hidden" value="${element.user.id}">`
     + ` <img class="movie__image" src="./img/movies/${element.movie.image}" alt="${element.movie.image}"></img>`
     + ` </br>`
-    + ` <input class="watch__tvShowId" type="hidden" value="${element.movieId}">`
+    + ` <input class="watch__movie" type="hidden" value="${element.movieId}">`
     + ` <button class='edit-watchList__submit'>Edit</button>`        
     + ` <button class='deleteReview-watchList__submit'>Delete</button>` ;
 }

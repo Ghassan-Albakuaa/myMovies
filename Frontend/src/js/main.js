@@ -196,6 +196,36 @@ mainDiv.addEventListener("click", function(){
 
 /////////////////////////////////////////////////////end////////////edit///////////////////////////////////////// 
 
+  // Delete a movie from a user's watchlist
+  mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('deleteReview-watchList__submit')){
+        const WatchId = event.target.parentElement.querySelector('.watch__id').value;
+        const WatchUserId = event.target.parentElement.querySelector('.watch__Userid').value;
+        localStorage.setItem("User__Id",WatchUserId);
+        //alert("UserId ="+ localStorage.User__Id);
+        //console.log(WatchId);
+
+        apiActions.deleteRequest(
+            `http://localhost:57559/api/Watchlist/${WatchId}`,
+        a => {
+            const watchlistGrid = document.createElement('div');
+            watchlistGrid.classList.add('watchlist__upper_grid_container');
+            watchlistGrid.innerHTML = WatchlistGrid();
+            apiActions.getRequest(`http://localhost:57559/api/User/${WatchUserId}`,
+            user => {
+                mainDiv.innerHTML = WatchlistUserInfo(user);
+                mainDiv.appendChild(watchlistGrid);
+                apiActions.getRequest(`http://localhost:57559/api/Watchlist/User/${localStorage.User__Id}`,
+                usersWatchlist => {
+                    UserWatchlistFilter(usersWatchlist);
+                }
+                )
+            }
+        )}
+        )
+    }
+})
+
 }
 
 function navMovies() {
