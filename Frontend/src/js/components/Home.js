@@ -13,6 +13,22 @@ export default function Home(users) {
             </select>
             <button class='Search-addReview-watchList__submit'>Log in</button>
          </div> 
+
+<br><br>
+         <div class="loginPassword__grid_container">
+
+         <label for="uname"><b>Username</b></label>
+         <input type="text" placeholder="Enter Username" name="uname" required>
+     
+         <label for="psw"><b>Password</b></label>
+         <input type="password" placeholder="Enter Password" name="psw" required>
+     
+        
+         <button class='Login-addReview-watchList__submit'>Log in</button>
+      </div> 
+
+
+
     </div>
     </div>
     `
