@@ -14,6 +14,8 @@ import EditWatchlist from "./components/EditWatchlist";
 import MovieSelection from "./components/MovieSelection";
 import ReviewAddToWatchlist from "./components/ReviewAddToWatchlist";
 import UserLogin from "./components/UserLogin";
+import UserLoginWithPassword from "./components/UserLoginWithPassword";
+
 
 export default pageBuild
 
@@ -298,6 +300,7 @@ mainDiv.addEventListener("click", function(){
  mainDiv.addEventListener("click", function(){
     if(event.target.classList.contains('Search-addReview-watchList__submit')){
     const user___Id = event.target.parentElement.querySelector('.Login-add-__username').value;  
+
     localStorage.setItem("LoginhUserId",user___Id);      
             apiActions.getRequest("http://localhost:57559/api/User",
             users => {
@@ -336,6 +339,41 @@ mainDiv.addEventListener("click", function() {
     )
     }
 })
+//////////////////////////////////////////////log in with password///////////////////////////////////////////////////
+mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('Login-withPassword__submit')){
+    const user___name = event.target.parentElement.querySelector('.add-username').value;  
+    const user___password = event.target.parentElement.querySelector('.add-password').value;  
+
+    localStorage.setItem("LoginhUsername",user___name); 
+    localStorage.setItem("LoginhUserpassword",user___password);   
+    
+    apiActions.getRequest("http://localhost:57559/api/User",
+    users => {
+        mainDiv.innerHTML = UserLoginWithPassword(users);
+        alert("pass2"+ sessionStorage.Search__Id)   
+        const watchlistGrid = document.createElement('div');
+        watchlistGrid.classList.add('watchlist__upper_grid_container');
+        watchlistGrid.innerHTML = WatchlistGrid();
+        apiActions.getRequest(`http://localhost:57559/api/User/${sessionStorage.Search__Id}`,
+        user => {
+        mainDiv.innerHTML = WatchlistUserInfo(user);
+        mainDiv.appendChild(watchlistGrid);
+        
+        apiActions.getRequest(`http://localhost:57559/api/Watchlist/User/${sessionStorage.Search__Id}`,
+            usersWatchlist => {
+                UserWatchlistFilter(usersWatchlist);
+            }
+            )
+        }
+        )
+    }
+)
+}
+})
+
+
+////////////////////////////////////////////end////////////////////////////////log in with password//////////////////
 }
 /////////////////////////////////////////////////////////////////////////
 
