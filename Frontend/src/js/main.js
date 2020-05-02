@@ -351,7 +351,7 @@ mainDiv.addEventListener("click", function(){
     apiActions.getRequest("http://localhost:57559/api/User",
     users => {
         mainDiv.innerHTML = UserLoginWithPassword(users);
-        alert("pass2"+ sessionStorage.Search__Id)   
+        
         const watchlistGrid = document.createElement('div');
         watchlistGrid.classList.add('watchlist__upper_grid_container');
         watchlistGrid.innerHTML = WatchlistGrid();

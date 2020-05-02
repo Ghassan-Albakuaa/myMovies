@@ -6,7 +6,8 @@ export default function UserLogin(users){
         
         if (element.id == localStorage.LoginhUserId)
         {      
-            sessionStorage.setItem("Search__Id", element.id);     
+            sessionStorage.setItem("Search__Id", element.id); 
+            sessionStorage.setItem("Group", element.group);    
         }
         }).join("");       
    

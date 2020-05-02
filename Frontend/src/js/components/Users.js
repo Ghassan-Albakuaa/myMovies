@@ -5,6 +5,7 @@ export default function Users(users){
         <h2>All Users</h2>
         <div class="users__grid_container">
             ${users.map(user => {
+                if(sessionStorage.Group == user.group)
             return `
                 <div class="users__specific_user">
                     <img class="users__user_image" src="./img/users/${user.image}" alt="${user.image}"></img>
