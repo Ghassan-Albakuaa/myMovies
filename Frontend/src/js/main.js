@@ -326,7 +326,7 @@ mainDiv.addEventListener("click", function(){
 })
 //////////////////////////////////////////////end/////////////////////////////////////////////////////////////////
 ////////////////// Go to specific show when show name is clicked on in watchlist//////////////////////////////////
-  
+ 
 mainDiv.addEventListener("click", function() {
     if(event.target.classList.contains("watched_movie__title")
     || event.target.classList.contains("watching_movie__title")
@@ -339,6 +339,7 @@ mainDiv.addEventListener("click", function() {
     )
     }
 })
+
 //////////////////////////////////////////////log in with password///////////////////////////////////////////////////
 mainDiv.addEventListener("click", function(){
     if(event.target.classList.contains('Login-withPassword__submit')){
@@ -390,4 +391,17 @@ function navMovies() {
     })
 
     //l 7
+
+     // Goes to a specific tv show from tv shows
+     mainDiv.addEventListener("click", function() {
+        if(event.target.classList.contains("movies__show_title")
+        || event.target.classList.contains("movies__show_image")){
+            const movieId = event.target.parentElement.querySelector('.movie__id').value;
+            apiActions.getRequest(`http://localhost:57559/api/Movie/${movieId}`,
+            movie => {
+                mainDiv.innerHTML = MovieSelection(movie);
+            }
+        )
+        }
+    })
 }
