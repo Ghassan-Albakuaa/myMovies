@@ -433,8 +433,7 @@ function navMovies() {
    ////////////////////////////////// // Also loads add more comments at the bottom of the comments
     mainDiv.addEventListener("click", function() {
         if(event.target.classList.contains("view-comment__submit")){
-            const movieId = document.querySelector(".movie__id").value;
-            alert("*"+ movieId);
+            const movieId = document.querySelector(".movie__id").value;          
             const commentTextArea = document.querySelector(".movieSelection__text_area");
             const movieButtonSection = document.querySelector(".movieSelection__button_section");
             apiActions.getRequest(`http://localhost:57559/api/Comment/Movie/${movieId}`,
@@ -443,6 +442,19 @@ function navMovies() {
                 }
             )
             movieButtonSection.innerHTML = MovieSelectionShowReviewButton();
+        }
+    })
+
+    
+    // Returns to the main movie view after clicking review button
+    mainDiv.addEventListener("click", function() {
+        if(event.target.classList.contains("movieSelection__reload_reviews")){
+            const movieId = document.querySelector('.movie__id').value;
+            apiActions.getRequest(`http://localhost:57559/api/movie/${movieId}`,
+            movie => {
+                mainDiv.innerHTML = MovieSelection(movie);
+            }
+        )
         }
     })
 
