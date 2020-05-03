@@ -12,7 +12,7 @@ export default function MovieSelection(movie) {
                     <button class="view-comment__submit">View Comments <p>*Contains Spoilers!*</p></button>    
                 </section> 
             </div>
-            <div class="tvShowSelection__text_area">
+            <div class="movieSelection__text_area">
                 <h3>Popular Reviews</h3>
                 <hr>
                 ${movie.watchlists.map(value => {

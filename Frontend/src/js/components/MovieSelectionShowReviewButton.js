@@ -1,5 +1,5 @@
 export default function MovieSelectionShowReviewButton() {
     return `
-        <button class="tvShowSelection__reload_reviews">Show reviews</button>
+        <button class="movieSelection__reload_reviews">Show reviews</button>
     `
 }

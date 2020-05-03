@@ -16,6 +16,7 @@ import ReviewAddToWatchlist from "./components/ReviewAddToWatchlist";
 import UserLogin from "./components/UserLogin";
 import UserLoginWithPassword from "./components/UserLoginWithPassword";
 import MovieSelectionShowReviewButton from "./components/MovieSelectionShowReviewButton";
+import CommentsByMovie from "./components/CommentsByMovie";
 
 
 export default pageBuild
@@ -433,11 +434,12 @@ function navMovies() {
     mainDiv.addEventListener("click", function() {
         if(event.target.classList.contains("view-comment__submit")){
             const movieId = document.querySelector(".movie__id").value;
+            alert("*"+ movieId);
             const commentTextArea = document.querySelector(".movieSelection__text_area");
             const movieButtonSection = document.querySelector(".movieSelection__button_section");
-            apiActions.getRequest(`http://localhost:51880/api/Comment/movie/${movieId}`,
+            apiActions.getRequest(`http://localhost:57559/api/Comment/Movie/${movieId}`,
                 comments =>{
-                    commentTextArea.innerHTML = CommentsBymovie(comments);
+                    commentTextArea.innerHTML = CommentsByMovie(comments);
                 }
             )
             movieButtonSection.innerHTML = MovieSelectionShowReviewButton();
