@@ -15,6 +15,7 @@ import MovieSelection from "./components/MovieSelection";
 import ReviewAddToWatchlist from "./components/ReviewAddToWatchlist";
 import UserLogin from "./components/UserLogin";
 import UserLoginWithPassword from "./components/UserLoginWithPassword";
+import MovieSelectionShowReviewButton from "./components/MovieSelectionShowReviewButton";
 
 
 export default pageBuild
@@ -325,7 +326,7 @@ mainDiv.addEventListener("click", function(){
     }
 })
 //////////////////////////////////////////////end/////////////////////////////////////////////////////////////////
-////////////////// Go to specific show when show name is clicked on in watchlist//////////////////////////////////
+////////////////// Go to specific movie when movie title is clicked on in watchlist//////////////////////////////////
  
 mainDiv.addEventListener("click", function() {
     if(event.target.classList.contains("watched_movie__title")
@@ -419,7 +420,7 @@ function navMovies() {
             mainDiv.appendChild(watchlistGrid);
             apiActions.getRequest(`http://localhost:57559/api/Watchlist/User/${userId}`,
             usersWatchlist => {
-                WatchlistFilter(usersWatchlist);
+                UserWatchlistFilter(usersWatchlist);
             }
             )
         }
@@ -427,5 +428,20 @@ function navMovies() {
     }
 })
 
+//////////////////////////////////// // Add event listener to Click comments button and load all comments
+   ////////////////////////////////// // Also loads add more comments at the bottom of the comments
+    mainDiv.addEventListener("click", function() {
+        if(event.target.classList.contains("view-comment__submit")){
+            const movieId = document.querySelector(".movie__id").value;
+            const commentTextArea = document.querySelector(".movieSelection__text_area");
+            const movieButtonSection = document.querySelector(".movieSelection__button_section");
+            apiActions.getRequest(`http://localhost:51880/api/Comment/movie/${movieId}`,
+                comments =>{
+                    commentTextArea.innerHTML = CommentsBymovie(comments);
+                }
+            )
+            movieButtonSection.innerHTML = MovieSelectionShowReviewButton();
+        }
+    })
 
 }
