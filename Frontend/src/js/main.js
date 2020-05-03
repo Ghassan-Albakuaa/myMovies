@@ -392,7 +392,7 @@ function navMovies() {
 
     //l 7
 
-     // Goes to a specific tv show from tv shows
+     // Goes to a specific movie from Movies 
      mainDiv.addEventListener("click", function() {
         if(event.target.classList.contains("movies__show_title")
         || event.target.classList.contains("movies__show_image")){
@@ -404,4 +404,28 @@ function navMovies() {
         )
         }
     })
+
+
+ // Go to user's watchlist when user name is clicked on in MovieSelection view
+ mainDiv.addEventListener("click", function() {
+    if(event.target.classList.contains("users__name_btn")){
+        const userId = event.target.parentElement.querySelector(".users__id").value;
+        const watchlistGrid = document.createElement('div');
+        watchlistGrid.classList.add('watchlist__upper_grid_container');
+        watchlistGrid.innerHTML = WatchlistGrid();
+        apiActions.getRequest(`http://localhost:57559/api/User/${userId}`,
+        user => {
+            mainDiv.innerHTML = WatchlistUserInfo(user);
+            mainDiv.appendChild(watchlistGrid);
+            apiActions.getRequest(`http://localhost:57559/api/Watchlist/User/${userId}`,
+            usersWatchlist => {
+                WatchlistFilter(usersWatchlist);
+            }
+            )
+        }
+    )
+    }
+})
+
+
 }
