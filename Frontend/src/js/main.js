@@ -458,4 +458,29 @@ function navMovies() {
         }
     })
 
+     // POST request to add comment to a specific show
+     mainDiv.addEventListener("click", function() {
+        if(event.target.classList.contains("add-comment__submit")){
+            const movieId = document.querySelector(".movie__id").value;
+            const userId = localStorage.LoginhUserId;
+            const commentText = document.querySelector(".add-commentText").value;
+            const commentTextArea = document.querySelector(".movieSelection__text_area");
+            var requestBody = {
+                UserId: userId,
+                MovieId: movieId,
+                CommentText: commentText
+            }
+            console.log(requestBody);
+            apiActions.postRequest(`http://localhost:57559/api/Comment/`,
+                requestBody,
+                a => {
+                    apiActions.getRequest(`http://localhost:57559/api/Comment/movie/${movieId}`,
+                    comments => {
+                    commentTextArea.innerHTML = CommentsByMovie(comments);
+                })
+                }
+            )
+        }
+    })
+
 }
