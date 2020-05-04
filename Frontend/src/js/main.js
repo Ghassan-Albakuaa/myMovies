@@ -17,6 +17,7 @@ import UserLogin from "./components/UserLogin";
 import UserLoginWithPassword from "./components/UserLoginWithPassword";
 import MovieSelectionShowReviewButton from "./components/MovieSelectionShowReviewButton";
 import CommentsByMovie from "./components/CommentsByMovie";
+import SearchByMovie from "./components/SearchByMovie";
 
 
 export default pageBuild
@@ -483,4 +484,30 @@ function navMovies() {
         }
     })
 
+    ////////////////////////////////////////////////search by movies///////////////////////////////////////
+
+  
+mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('search__submit')){
+    const movie___name = event.target.parentElement.querySelector('.movie__title').value; 
+    localStorage.setItem("Movie___Name", movie___name);    
+    
+    apiActions.getRequest("http://localhost:57559/api/movie",
+    movies => {
+        mainDiv.innerHTML = SearchByMovie(movies);        
+       
+        apiActions.getRequest(`http://localhost:57559/api/movie/${sessionStorage.SMovieId}`,
+        movie => {
+        mainDiv.innerHTML = MovieSelection(movie);
+   
+        }
+        )
+    }
+)
+}
+})
+
+
+////////////////////////////////////////////end////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 }

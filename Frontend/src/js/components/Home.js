@@ -24,6 +24,15 @@ export default function Home(users) {
 <button class='Login-withPassword__submit'>Log in</button>
          </div> 
 
+         <br><br>
+<label for="uname"><b></b></label>
+<input  class="movie__title" type="text" placeholder="Search Movie" name="movie" required>
+
+
+
+<button class='search__submit'>Search</button>
+         </div> 
+
 
 
 
