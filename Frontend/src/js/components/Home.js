@@ -27,10 +27,9 @@ export default function Home(users) {
          <br><br>
 <label for="uname"><b></b></label>
 <input  class="movie__title" type="text" placeholder="Search Movie" name="movie" required>
-
-
-
 <button class='search__submit'>Search</button>
+
+
          </div> 
 
 
@@ -41,3 +40,9 @@ export default function Home(users) {
     </div>
     `
 }
+/*
+<br><br>
+<input  class="movie__transcript" type="text" placeholder="Search Movie" name="movieT" required>
+<button class='search_transcript__submit'>Search</button>
+
+*/

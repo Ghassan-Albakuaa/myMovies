@@ -18,6 +18,8 @@ import UserLoginWithPassword from "./components/UserLoginWithPassword";
 import MovieSelectionShowReviewButton from "./components/MovieSelectionShowReviewButton";
 import CommentsByMovie from "./components/CommentsByMovie";
 import SearchByMovie from "./components/SearchByMovie";
+//import SearchByMovieTranscript from "./components/SearchByMovieTranscript";
+//import TranscriptLink from "./components/TranscriptLink";
 
 
 export default pageBuild
@@ -510,4 +512,107 @@ mainDiv.addEventListener("click", function(){
 
 ////////////////////////////////////////////end////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
+/*
+////////////////////////////////////////////////////by transcript/////////////////////////////
+mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('search_transcript__submit')){
+    const movie__transcript = event.target.parentElement.querySelector('.movie__transcript').value; 
+    localStorage.setItem("movie_transcript", movie__transcript);    
+    
+    apiActions.getRequest("http://localhost:57559/api/movie",
+    movies => {
+        mainDiv.innerHTML = SearchByMovie(movies);        
+       
+        apiActions.getRequest(`http://localhost:57559/api/movie/${sessionStorage.SMovieId}`,
+        movie => {
+        mainDiv.innerHTML = MovieSelection(movie);
+   
+        }
+        )
+    }
+)
+}
+})
+*/
+ ////////////////////////////////////////////////search by movies transcript///////////////////////////////////////
+/*
+ 
+ mainDiv.addEventListener("click", function(){
+    if(event.target.classList.contains('search_transcript__submit')){
+    const movie___transcript = event.target.parentElement.querySelector('.movie__transcript').value; 
+    localStorage.setItem("Movie___transcript", movie___transcript); 
+    //
+    const transcriptLink = document.createElement('div');
+    transcriptLink.classList.add('movie__search_section');
+    transcriptLink.innerHTML = TranscriptLink();
+    //
+    //const movie__search_section = document.getElementsByClassName('.movie__search_section').value; 
+    //
+//alert("gh="+ movie__search_section);
+    //
+    apiActions.getRequest("http://localhost:57559/api/movie",
+    movies => {
+        mainDiv.innerHTML = SearchByMovieTranscript(movies);        
+        mainDiv.appendChild(transcriptLink);
+       */        
+     /*  ////////////////////////
+        apiActions.getRequest(`http://localhost:57559/api/movie/${sessionStorage.SMovieId}`,
+        movie => {
+        mainDiv.innerHTML = MovieSelection(movie);
+   
+        }
+        )
+       */ //////////////////
+  //  }
+//)
+//}
+//})
+
+
+////////////////////////////////////////////end////////////////////////////////////////////////
+
+/*
+mainDiv.addEventListener("click", function() {
+    if(event.target.classList.contains("view-comment__submit")){
+        const movieId = document.querySelector(".movie__id").value;          
+        const commentTextArea = document.querySelector(".movieSelection__text_area");//SearchByMovieTranscript
+        const movieButtonSection = document.querySelector(".movie__search_section");
+        apiActions.getRequest(`http://localhost:57559/api/Comment/Movie/${movieId}`,
+            comments =>{
+                commentTextArea.innerHTML = CommentsByMovie(comments);
+            }
+        )
+        movieButtonSection.innerHTML = MovieSelectionShowReviewButton();
+    }
+})
+
+
+
+
+/////////////////////////////
+mainDiv.addEventListener("click", function() {
+        if(event.target.classList.contains('user__name_btn')
+        || event.target.classList.contains('users__user_image')){
+            const userId = event.target.parentElement.querySelector('.user__id').value;
+            //local storage
+            var vistorId =0;
+            localStorage.removeItem(vistorId);
+            localStorage.setItem("vistorId",userId);
+            const watchlistGrid = document.createElement('div');
+            watchlistGrid.classList.add('watchlist__upper_grid_container');
+            watchlistGrid.innerHTML = WatchlistGrid();
+            apiActions.getRequest(`http://localhost:57559/api/User/${userId}`,
+            user => {
+                mainDiv.innerHTML = WatchlistUserInfo(user);
+                mainDiv.appendChild(watchlistGrid);
+                apiActions.getRequest(`http://localhost:57559/api/Watchlist/User/${userId}`,
+                usersWatchlist => {
+                    UserWatchlistFilter(usersWatchlist);
+                }
+                )
+
+///////////////////////////////
+*/
+
+
 }

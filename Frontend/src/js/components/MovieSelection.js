@@ -7,6 +7,7 @@ export default function MovieSelection(movie) {
                 <img class="movie__images" src="./img/movies/${movie.image}" alt="${movie.image}"></img>
                 <input class="movie__id" type="hidden" value="${movie.id}">
                 </br>
+                
                 </br>
                 <section class="movieSelection__button_section"> 
                     <button class="view-comment__submit">View Comments <p>*Contains Spoilers!*</p></button>    
@@ -21,7 +22,7 @@ export default function MovieSelection(movie) {
                         if (value.review != "")
                         {
                             return `
-                            <div class="tvShowSelection__specific_user"
+                            <div class="movieSelection__specific_user"
                                 <p></p>
                                 <h4 class="users__name_btn">Name: ${value.user.name}</h4>
                                 <h4 class="users__movie__rating">Rating: ${value.rating}</h4>
