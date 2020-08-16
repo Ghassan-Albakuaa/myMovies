@@ -1,0 +1,178 @@
+/* ---BASIC & SET-UP--- */
+.watchlist__add_show > p,
+.update-Watched > p {
+    font-family: sans-serif;
+}
+label {
+    font-family: sans-serif;
+    font-size: 1.1rem;
+}
+/* ---ADD A SHOW TO LIST BUTTONS & FORM--- */
+button.watchlist__add_show_button,
+button.watchlistaddshow__submit {
+    font-size: 1.3rem;
+    padding: .5rem;
+    margin-top: 2rem;
+    color: #fff;
+    background: rgba(0, 128, 0, 0.673);
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.87);
+    border-radius: 7px;
+    text-align: center;
+    text-transform: capitalize;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.watchlist__add_show {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: inherit;
+}
+.watchlistaddshow__show_id,
+.watchlistaddshow__status_choice {
+    padding: 0.25rem;
+    margin: .5rem;
+    border-radius: 9px;
+    font-size: 1.15rem;
+    box-shadow: 0px 4px 5px 0px #008000;
+    border: none;
+    outline: none;
+}
+.watchlistaddshow__show_id:hover,
+.watchlistaddshow__status_choice:hover {
+    box-shadow: inset 0px 3px 5px 0px #008000;
+}
+/* ---WATCHLIST GRID & INNER CONTENT--- */
+.watchlist__grid_items_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+}
+.watchlist__grid_items_container > div {
+    width: 30%;
+    padding: 1em;
+    font-size: 18px;
+    box-shadow: 0px 0px 15px 0px #333333;
+    color: white;
+    text-align: center;
+}
+.tvShow__image {
+    margin: 2px;
+    border-radius: 20px;
+    max-height: 130px;
+    max-width: 200px;
+}
+/* ---EDIT,UPDATE,DELETE,ADD-REVIEW FORMS--- */
+.update-Watched {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.update-status {
+    padding: 0.25rem;
+    margin: .5rem;
+    border-radius: 9px;
+    font-size: 1rem;
+    box-shadow: 0px 3px 5px 0px rgba(99, 144, 233, 0.734);
+    border: none;
+    outline: none;
+}
+.update-status:hover {
+    box-shadow: inset 0px 3px 5px 0px rgba(99, 144, 233, 0.734);
+}
+.update-review,
+.update-rating {
+    padding: 0.5rem;
+    margin: .5rem;
+    border-radius: 5px;
+    font-size: .9rem;
+    border: 3px solid rgba(99, 144, 233, .7);
+    outline: none;
+}
+.update-review:focus,
+.update-rating:focus {
+    box-shadow: 0 0 10px rgba(99, 144, 233, .7);
+}
+/* ---EDIT,UPDATE,DELETE,ADD-REVIEW BUTTONS--- */
+button.edit-watchList__submit,
+button.update-watchList__submit {
+    background: rgba(99, 144, 233, 0.734);
+}
+button.addReview-watchList__submit {
+    background: rgba(31, 104, 250, 0.898);
+}
+button.deleteReview-watchList__submit{
+    background: rgba(162, 9, 4, 0.53);
+}
+button.edit-watchList__submit, 
+button.deleteReview-watchList__submit, 
+button.addReview-watchList__submit,
+button.update-watchList__submit {
+    font-size: 1.0rem;
+    padding: 0.25rem 0.5rem;
+    margin: .25rem;
+    color: black;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.87);
+    border-radius: 7px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+button.watchlist__add_show_button:hover, 
+button.edit-watchList__submit:hover,
+button.deleteReview-watchList__submit:hover,
+button.addReview-watchList__submit:hover,
+button.watchlistaddshow__submit:hover,
+button.update-watchList__submit:hover {
+    box-shadow: 2px -3px 3px 1px rgba(0, 0, 0, 0.87);
+    opacity: .8;
+}
+
+
+ /* ----OTHER BUTTONS---- */
+/* trying to save team time to work on more important things */
+/* can be copied into style sheet it belongs to when the focus shifts */
+
+/* LOG IN */
+.Login-add-__username {
+    padding: 0.5rem;
+    margin: 1rem;
+    border-radius: 9px;
+    font-size: 1.25rem;
+    box-shadow: inset 7px 0px 10px 0px rgb(219, 80, 61);
+    border: none;
+    outline: none;
+}
+.Login-add-__username:focus-within {
+    box-shadow: 0 0 10px rgb(219, 80, 61);
+}
+button.Search-addReview-watchList__submit {
+    font-size: 1.5rem;
+    margin: 1rem 2rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(to right, #FFFFFF, #DB4F3D);
+    box-shadow: 0 0 10px rgba(219, 80, 61, 0.7);
+    border-radius: 8px;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+button.Search-addReview-watchList__submit:hover {
+    background: linear-gradient(to left, #FFFFFF, #dbd63d, #DB4F3D);
+}
+/* ---VIEW COMMENTS NO SPOILERS--- */
+button.view-comment__submit {
+    font-size: 1.3rem;
+    padding: .5rem;
+    margin-top: 2rem;
+    color: #fff;
+    background: rgba(0, 128, 0, 0.53);
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.87);
+    border-radius: 7px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}

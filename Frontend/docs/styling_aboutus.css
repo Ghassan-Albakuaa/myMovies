@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+}
+/* -----ABOUT US----- */
+.about-us {
+    padding: 30px;
+}
+.p__about-us {
+    text-align: center;
+    color: white;  /* color: rgba(255, 255, 255, 0.768); ----once background color is set in main*/
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: 1.25rem;
+}
+.container__about-us {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 2rem auto;
+    justify-content: space-evenly;
+}
+.flexImg__about-us {
+    justify-content: flex-start;
+    position: relative;
+    width: 50%;
+    max-width: 100px;
+    border-radius: 3px;
+    outline: none;
+}
+.about-us_img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 3px;
+    border: 1.5px solid rgba(0, 0, 0, 0.707);
+    box-shadow: -3px 3px 0 0px rgba(0, 0, 0, 0.707);
+}
+.about-us_img:hover {
+    border: 2px solid rgba(0, 0, 0, 0.707);
+}
+.img-hover-block {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(8, 40, 109, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    transition: all 0.7s linear;
+    opacity:0;
+    color: white;
+    font-size: 18px;
+    padding: 4px;
+    text-align: center;
+}
+.flexImg__about-us:hover .img-hover-block {
+    opacity: 1;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: white;
+    outline: none;
+}

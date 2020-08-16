@@ -1,0 +1,68 @@
+.tvShows {
+    padding: 30px;
+    text-align: center;
+}
+.tvShows__grid_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    padding: 1em;
+    grid-row-gap: 2em;
+}
+.tvShows__grid_container article {
+    padding: 1em;
+    margin-top: 1em;
+}
+.tvShows__show_image {
+    border-radius: 20px;
+    max-height: 130px;
+    max-width: 250px;
+}
+.tvShows__show_title {
+    cursor: pointer;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 1px;
+    font-weight: normal;
+}
+.p_title-hover-btn {
+    display: none;
+    color: rgba(0, 128, 0, 0.857);
+}
+.tvShows__show_title:hover .p_title-hover-btn {
+    display: contents; 
+}
+.tvShows__grid_container article img {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ac3c3cf5;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px 10px;
+    z-index: 1;
+    transform: translate(60%,-15%);
+    border-radius: 20px;
+}
+.tvShows__specific_tvShow:hover .dropdown-content {
+    display: block;
+}
+.p-dropdown {
+    font-size: 1em;
+    margin-bottom: 4px;
+    margin-top: 1px;
+}
+.icon {
+    width: 50px;
+    height: 40px;
+    margin: 1px;
+}
+.icon:hover {
+    opacity: .5;
+}
+/* ----SPECIFIC TV SHOW INFO---- */
+.tvShow__grid_container {
+    display: grid;
+}

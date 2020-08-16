@@ -401,7 +401,7 @@ function navMovies() {
      mainDiv.addEventListener("click", function() {
         if(event.target.classList.contains("movies__show_title")
         || event.target.classList.contains("movies__show_image")){
-            const movieId = event.target.parentElement.querySelector('.movie__id').value;
+            const movieId = event.target.parentElement.querySelector('.movies__id').value;
             apiActions.getRequest(`http://localhost:57559/api/Movie/${movieId}`,
             movie => {
                 mainDiv.innerHTML = MovieSelection(movie);
